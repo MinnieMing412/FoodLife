@@ -1,0 +1,88 @@
+# generated: 2026-05-03T00:07:09-0700
+# last_updated: 2026-05-03T00:07:09-0700
+# project: FoodLife
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: /Users/yimingli/workspace/my_projects/FoodLife/_bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog -> in-progress: Automatically when first story is created (via create-story)
+#   - in-progress -> done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-05-03T00:07:09-0700
+last_updated: 2026-05-03T00:07:09-0700
+project: FoodLife
+project_key: NOKEY
+tracking_system: file-system
+story_location: /Users/yimingli/workspace/my_projects/FoodLife/_bmad-output/implementation-artifacts
+
+development_status:
+  epic-1: backlog
+  1-1-set-up-initial-project-from-starter-templates: backlog
+  1-2-define-foodmemory-v1-schema-contract: backlog
+  1-3-establish-baseline-ci-and-verification-workflow: backlog
+  1-4-implement-web-local-repository-contract: backlog
+  1-5-implement-web-photo-reference-store-boundary: backlog
+  1-6-implement-ios-domain-and-repository-contract: backlog
+  1-7-establish-shared-navigation-and-design-tokens: backlog
+  epic-1-retrospective: optional
+  epic-2: backlog
+  2-1-launch-type-first-add-memory-flow: backlog
+  2-2-add-photo-picker-entry-point: backlog
+  2-3-create-made-memory-with-required-and-optional-context: backlog
+  2-4-create-found-memory-with-location-and-discovery-context: backlog
+  2-5-preserve-found-memory-when-location-services-fail: backlog
+  2-6-validate-capture-persistence-across-web-and-ios: backlog
+  epic-2-retrospective: optional
+  epic-3: backlog
+  3-1-browse-made-memories-in-a-gallery: backlog
+  3-2-support-made-empty-loading-and-error-states: backlog
+  3-3-open-made-memory-detail-view: backlog
+  3-4-make-made-browse-and-detail-accessible-and-responsive: backlog
+  epic-3-retrospective: optional
+  epic-4: backlog
+  4-1-browse-found-memories-on-a-map: backlog
+  4-2-open-found-map-memory-preview: backlog
+  4-3-provide-found-map-fallback-and-accessible-alternative: backlog
+  4-4-open-found-memory-detail-view: backlog
+  4-5-make-found-map-and-detail-accessible-and-responsive: backlog
+  epic-4-retrospective: optional
+  epic-5: backlog
+  5-1-enter-edit-mode-from-memory-detail: backlog
+  5-2-edit-made-memory-metadata: backlog
+  5-3-edit-found-memory-metadata: backlog
+  5-4-replace-or-preserve-memory-photo: backlog
+  5-5-confirm-update-and-refresh-related-views: backlog
+  epic-5-retrospective: optional
+  epic-6: backlog
+  6-1-generate-seasonal-recap-from-local-memories: backlog
+  6-2-present-home-seasonal-reflection-experience: backlog
+  6-3-browse-all-memories-in-chronological-timeline: backlog
+  6-4-open-memory-details-from-timeline-and-home: backlog
+  6-5-make-home-and-timeline-responsive-and-accessible: backlog
+  epic-6-retrospective: optional
