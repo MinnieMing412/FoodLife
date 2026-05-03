@@ -223,6 +223,8 @@ FR45: Epics 2 and 4 - Preserve Found memory metadata when map/geocoding services
 Users can open complete iOS and web app shells, navigate the core product structure, and rely on a shared local-first FoodMemory model that preserves metadata and photo references across sessions.
 **FRs covered:** FR1, FR2, FR4, FR27, FR28, FR36, FR37, FR38, FR39, FR40, FR41, FR42, FR43, FR44
 
+**Implementation guardrail:** Foundation work in this epic must stay limited to FoodLife MVP outcomes: app shells, shared schema contract, local repository/photo boundaries, navigation, design tokens, and conformance/verification automation. Do not expand this epic into generic infrastructure, backend placeholders, cloud abstractions, or non-MVP platform services.
+
 ### Epic 2: Photo-First Memory Capture
 Users can start Add Memory globally, choose Made or Found first, attach or capture a photo, complete only required type-specific fields, add optional context, and save local memories reliably.
 **FRs covered:** FR5, FR6, FR7, FR8, FR9, FR10, FR11, FR12, FR13, FR17, FR18, FR19, FR42, FR44, FR45
@@ -262,6 +264,8 @@ So that FoodLife feels like one coherent local-first archive across platforms.
 **Then** it contains `apps/ios`, `apps/web`, and `packages/schema-contract` following the architecture structure
 **And** the web app is initialized from the Vite React TypeScript starter with route placeholders for Home, Made, Found, Timeline, Add Memory, and Detail/Edit
 **And** the iOS app shell is initialized from the native SwiftUI Xcode app template with matching conceptual navigation placeholders
+**And** the web app dependency install, initial test command, and production build command are documented and verified
+**And** the iOS app build can be verified locally in Xcode, or any unavailable Xcode automation constraint is explicitly documented
 **And** no backend, authentication, cloud sync, or placeholder server API is introduced.
 
 ### Story 1.2: Define FoodMemory v1 Schema Contract
@@ -282,7 +286,25 @@ So that my archive behaves the same on iOS and web.
 **And** invalid fixtures cover unsupported type values and missing required shared fields
 **And** schema contract tests verify the fixtures and fail on contract violations.
 
-### Story 1.3: Implement Web Local Repository Contract
+### Story 1.3: Establish Baseline CI and Verification Workflow
+
+As a FoodLife developer,
+I want schema-contract and web verification to run through documented commands and baseline CI,
+So that implementation agents get fast feedback before feature work depends on the foundation.
+
+**Requirements:** FR37, FR39, FR40
+
+**Acceptance Criteria:**
+
+**Given** the web app starter and schema-contract package exist
+**When** baseline verification is configured
+**Then** the repository exposes documented commands for web install, typecheck, test, and build
+**And** the schema-contract package exposes a documented validation/test command for fixtures and expected outputs
+**And** baseline CI or equivalent repository automation runs schema-contract validation and web typecheck/test/build
+**And** iOS build/test automation is added when an Xcode-capable CI runner is available, or the local Xcode verification path is documented
+**And** no backend deployment, cloud service, or non-MVP infrastructure is introduced.
+
+### Story 1.4: Implement Web Local Repository Contract
 
 As a FoodLife user,
 I want the web app to preserve local memory records across browser sessions,
@@ -300,7 +322,7 @@ So that my food archive remains available without an account or cloud sync.
 **And** repository conformance tests cover Made and Found records, local retrieval after restart simulation, and no network dependency
 **And** no UI feature depends directly on IndexedDB implementation details.
 
-### Story 1.4: Implement Web Photo Reference Store Boundary
+### Story 1.5: Implement Web Photo Reference Store Boundary
 
 As a FoodLife user,
 I want saved web memories to keep stable photo references,
@@ -318,7 +340,7 @@ So that photos can remain associated with the correct records as the archive gro
 **And** tests verify memory records never embed image blobs
 **And** photo lookup errors map to stable domain error codes.
 
-### Story 1.5: Implement iOS Domain and Repository Contract
+### Story 1.6: Implement iOS Domain and Repository Contract
 
 As a FoodLife user,
 I want the iOS app to preserve local memory records using the same FoodMemory meaning as web,
@@ -336,7 +358,7 @@ So that FoodLife does not split into incompatible archives.
 **And** local retrieval across app relaunch scenarios is covered by tests where feasible
 **And** SwiftData model objects do not become the canonical schema source.
 
-### Story 1.6: Establish Shared Navigation and Design Tokens
+### Story 1.7: Establish Shared Navigation and Design Tokens
 
 As a FoodLife user,
 I want Home, Made, Found, Timeline, and Add Memory to be consistently reachable and visually coherent,
@@ -538,7 +560,9 @@ So that I can revisit home-cooked memories comfortably on iOS and web.
 **And** mobile uses a single-column or compact gallery pattern while larger screens can expand to multi-column layouts
 **And** gallery items and detail actions have accessible names that include type, dish name, date, and primary context
 **And** Made distinction does not rely on color alone
-**And** web supports keyboard navigation and visible focus, while iOS supports VoiceOver labels and readable text scaling.
+**And** web supports keyboard navigation and visible focus, while iOS supports VoiceOver labels and readable text scaling
+**And** responsive/accessibility verification covers Made empty, loading, missing-photo, gallery, and detail states across mobile, tablet, desktop, and wide desktop web sizes
+**And** assistive-technology verification covers keyboard-only web navigation, visible focus order, screen reader labels, and iOS readable text scaling.
 
 ## Epic 4: Found Memories Map and Detail
 
@@ -632,7 +656,9 @@ So that I can revisit dining discoveries comfortably on iOS and web.
 **And** mobile uses map plus bottom-sheet/list patterns while larger screens can use map plus side preview
 **And** web supports keyboard navigation to Found memories through marker alternatives or list representations
 **And** screen reader labels include type, restaurant, location, and date
-**And** iOS supports VoiceOver labels, native map affordances where feasible, and readable text scaling.
+**And** iOS supports VoiceOver labels, native map affordances where feasible, and readable text scaling
+**And** responsive/accessibility verification covers Found empty, loading, map available, map unavailable, geocoding unavailable, preview, fallback list, and detail states across mobile, tablet, desktop, and wide desktop web sizes
+**And** map verification confirms every Found memory remains reachable without relying on pointer-only map markers.
 
 ## Epic 5: Edit and Maintain Memories
 
@@ -820,4 +846,5 @@ So that rediscovery remains comfortable on iOS and web.
 **And** mobile uses single-column layouts while larger screens may use richer seasonal modules and grouped chronology layouts
 **And** all memory previews have accessible names including type, title, date, and primary context
 **And** Made and Found distinctions do not rely on color alone
-**And** responsive and accessibility checks cover empty states, loading states, fallback states, keyboard navigation, VoiceOver, text scaling, and current Safari and Chrome.
+**And** responsive and accessibility checks cover empty states, loading states, fallback states, keyboard navigation, VoiceOver, text scaling, and current Safari and Chrome
+**And** the verification matrix covers Home starter state, Home low-data state, Home seasonal recap state, Timeline empty state, Timeline loaded state, missing-photo timeline items, and detail navigation from Home and Timeline.
