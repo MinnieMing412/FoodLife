@@ -2,6 +2,7 @@
 node_modules/
 
 # Build outputs
+.build/
 build/
 dist/
 
@@ -12,6 +13,8 @@ dist/
 # IDE files
 .vscode/
 .idea/
+xcuserdata/
+*.xcuserstate
 
 # OS files
 .DS_Store
