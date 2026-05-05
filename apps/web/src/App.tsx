@@ -11,14 +11,16 @@ const destinations = [
 function Placeholder({
   title,
   description,
+  headingId,
 }: {
   title: string
   description: string
+  headingId: string
 }) {
   return (
-    <section className="placeholder" aria-labelledby={`${title}-heading`}>
+    <section className="placeholder" aria-labelledby={headingId}>
       <p className="eyebrow">FoodLife</p>
-      <h1 id={`${title}-heading`}>{title}</h1>
+      <h1 id={headingId}>{title}</h1>
       <p>{description}</p>
     </section>
   )
@@ -54,6 +56,7 @@ function App() {
             element={
               <Placeholder
                 title="Home"
+                headingId="home-heading"
                 description="A local-first starting point for recent meals, seasonal memories, and the next FoodLife destination."
               />
             }
@@ -63,6 +66,7 @@ function App() {
             element={
               <Placeholder
                 title="Made"
+                headingId="made-heading"
                 description="Food you cooked, saved as a personal archive of meals, context, and memory."
               />
             }
@@ -72,6 +76,7 @@ function App() {
             element={
               <Placeholder
                 title="Found"
+                headingId="found-heading"
                 description="Food and places discovered outside, kept separate from meals made at home."
               />
             }
@@ -81,6 +86,7 @@ function App() {
             element={
               <Placeholder
                 title="Timeline"
+                headingId="timeline-heading"
                 description="A chronological view for browsing FoodLife memories across Made and Found."
               />
             }
@@ -90,6 +96,7 @@ function App() {
             element={
               <Placeholder
                 title="Add Memory"
+                headingId="add-memory-heading"
                 description="A future entry point for capturing a Made or Found food memory."
               />
             }
@@ -99,6 +106,7 @@ function App() {
             element={
               <Placeholder
                 title="Detail View"
+                headingId="detail-view-heading"
                 description="A future detail placeholder for one local FoodLife memory."
               />
             }
@@ -108,6 +116,7 @@ function App() {
             element={
               <Placeholder
                 title="Edit Memory"
+                headingId="edit-memory-heading"
                 description="A future edit placeholder for updating a local FoodLife memory."
               />
             }

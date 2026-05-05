@@ -1,6 +1,6 @@
 # Story 1.1: Set Up Initial Project from Starter Templates
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -45,6 +45,18 @@ so that FoodLife feels like one coherent local-first archive across platforms.
   - [x] Use platform-appropriate navigation; web can use React Router, iOS should use SwiftUI-native navigation/tab patterns.
   - [x] Make Made/Found labels visible as text, not color-only cues.
   - [x] Avoid recipe, restaurant review, nutrition, analytics, social feed, account, or cloud language in placeholder UI.
+
+### Review Findings
+
+- [x] [Review][Decision] Decide whether GitHub start-story automation belongs in Story 1.1 — resolved by removing the out-of-scope `scripts/github/start-story.sh` addition and reverting `_bmad/custom/bmad-dev-story.toml` to the existing completion-sync behavior.
+- [x] [Review][Patch] GitHub start-story script can leave partially-mutated issue state if Project lookup/status update fails [scripts/github/start-story.sh:166] — resolved by removing the out-of-scope script from Story 1.1.
+- [x] [Review][Patch] Dev Agent File List omits workflow automation files changed by this story [_bmad-output/implementation-artifacts/1-1-set-up-initial-project-from-starter-templates.md:201] — resolved by removing the out-of-scope workflow automation changes from this story.
+- [x] [Review][Patch] Web placeholder sections generate invalid ARIA ids for headings with spaces [apps/web/src/App.tsx:19]
+- [x] [Review][Patch] Unused Vite/demo assets and social starter artifacts remain committed [apps/web/src/App.css:1]
+- [x] [Review][Patch] Web build/test tooling is listed as production dependencies instead of devDependencies [apps/web/package.json:13]
+- [x] [Review][Patch] Web README still contains generic Vite starter documentation instead of FoodLife setup and verification [apps/web/README.md:1]
+- [x] [Review][Patch] Web document title is still the generic starter title [apps/web/index.html:7]
+- [x] [Review][Patch] iOS project references an AppIcon asset catalog that is not present in the project [apps/ios/FoodLife.xcodeproj/project.pbxproj:33]
 
 ## Dev Notes
 
@@ -194,9 +206,11 @@ GPT-5 Codex
 - Initialized `apps/web` from the Vite React TypeScript starter and replaced the starter demo with FoodLife routes for Home, Made, Found, Timeline, Add Memory, Detail View, and Edit Memory.
 - Added React Router, Tailwind via the Vite plugin, Vitest, Testing Library, and a focused app-shell test covering primary destinations plus detail/edit placeholders.
 - Created an Xcode-compatible native SwiftUI project under `apps/ios` named `FoodLife`, including app, unit-test, and UI-test targets.
+- Added the starter iOS asset catalog with an AppIcon set and wired it into the app resources.
 - Added SwiftUI-native tab/navigation placeholders for Home, Made, Found, Timeline, Add Memory, and Detail/Edit.
 - Documented web setup/build/test commands, iOS `xcodebuild` verification commands, Xcode template recreation choices, and sandbox-only CoreSimulator runtime limitations in `README.md`.
 - Verified `npm install`, `npm run test`, `npm run lint`, `npm run build`, `xcodebuild ... build`, and `xcodebuild ... build-for-testing`.
+- Addressed code review findings by fixing web ARIA heading IDs, removing unused Vite starter artifacts, moving web build/test tooling to devDependencies, replacing the web README with FoodLife setup docs, setting the web title to FoodLife, and removing out-of-scope GitHub start-story automation from this story.
 
 ### File List
 
@@ -205,6 +219,8 @@ GPT-5 Codex
 - `_bmad-output/implementation-artifacts/1-1-set-up-initial-project-from-starter-templates.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
 - `apps/ios/FoodLife.xcodeproj/project.pbxproj`
+- `apps/ios/FoodLife/Assets.xcassets/Contents.json`
+- `apps/ios/FoodLife/Assets.xcassets/AppIcon.appiconset/Contents.json`
 - `apps/ios/FoodLife/ContentView.swift`
 - `apps/ios/FoodLife/FoodLifeApp.swift`
 - `apps/ios/FoodLifeTests/FoodLifeTests.swift`
@@ -216,13 +232,9 @@ GPT-5 Codex
 - `apps/web/package-lock.json`
 - `apps/web/package.json`
 - `apps/web/public/favicon.svg`
-- `apps/web/public/icons.svg`
-- `apps/web/src/App.css`
 - `apps/web/src/App.test.tsx`
 - `apps/web/src/App.tsx`
 - `apps/web/src/assets/hero.png`
-- `apps/web/src/assets/react.svg`
-- `apps/web/src/assets/vite.svg`
 - `apps/web/src/index.css`
 - `apps/web/src/main.tsx`
 - `apps/web/src/test-setup.ts`

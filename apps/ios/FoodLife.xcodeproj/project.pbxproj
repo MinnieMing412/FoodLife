@@ -11,6 +11,7 @@
 		2F0000010000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0000010000000000000012 /* ContentView.swift */; };
 		2F0000010000000000000003 /* FoodLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0000010000000000000013 /* FoodLifeTests.swift */; };
 		2F0000010000000000000004 /* FoodLifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0000010000000000000014 /* FoodLifeUITests.swift */; };
+		2F0000010000000000000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0000010000000000000018 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		2F0000010000000000000015 /* FoodLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0000010000000000000016 /* FoodLifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodLifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0000010000000000000017 /* FoodLifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodLifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F0000010000000000000018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				2F0000010000000000000011 /* FoodLifeApp.swift */,
 				2F0000010000000000000012 /* ContentView.swift */,
+				2F0000010000000000000018 /* Assets.xcassets */,
 			);
 			path = FoodLife;
 			sourceTree = "<group>";
@@ -177,7 +180,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2F0000010000000000000072 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		2F0000010000000000000072 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (2F0000010000000000000005 /* Assets.xcassets in Resources */); runOnlyForDeploymentPostprocessing = 0; };
 		2F0000010000000000000074 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 		2F0000010000000000000076 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
