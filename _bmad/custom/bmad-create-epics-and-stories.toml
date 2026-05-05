@@ -1,0 +1,14 @@
+[workflow]
+on_complete = """
+Create or refresh the GitHub sprint tracking project from the finalized epics and stories, including story issues as sub-issues of their corresponding epic issues.
+
+Run from {project-root}:
+`scripts/github/create-sprint-project.sh`
+
+If GitHub CLI is missing, not authenticated, or lacks project scopes, explain the exact command the user must run:
+`gh auth login`
+or
+`gh auth refresh -s read:project -s project`
+
+Only run this after the user has selected `[C] Complete Workflow` in final validation and `{planning_artifacts}/epics.md` has been saved.
+"""
