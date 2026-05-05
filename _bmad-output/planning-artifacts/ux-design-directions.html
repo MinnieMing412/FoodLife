@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoodLife UX Design Directions</title>
+  <style>
+    :root {
+      --bg: #F7F5F0;
+      --surface: #FFFFFF;
+      --text: #24221F;
+      --made: #C1A79C;
+      --found: #7CB342;
+      --seasonal: #B9A36A;
+      --accent: #1E9E8A;
+      --muted: #7B7770;
+      --line: rgba(36, 34, 31, 0.12);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+    }
+
+    header {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 38px 24px 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .directions {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .direction {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 14px 36px rgba(36, 34, 31, 0.06);
+    }
+
+    .direction-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .caption {
+      max-width: 700px;
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .tag {
+      align-self: flex-start;
+      white-space: nowrap;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 11px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 720;
+    }
+
+    .mock {
+      min-height: 520px;
+      padding: 24px;
+      background: #f3f0e9;
+    }
+
+    .app {
+      overflow: hidden;
+      max-width: 980px;
+      min-height: 470px;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      box-shadow: 0 18px 50px rgba(36, 34, 31, 0.08);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav span,
+    .pill {
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 720;
+      line-height: 1;
+    }
+
+    .nav .active {
+      background: var(--text);
+      color: #fff;
+    }
+
+    .add {
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: var(--found);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .photo {
+      min-height: 110px;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,.72), transparent 0 11%, transparent 12%),
+        linear-gradient(135deg, #d9b899, #8f6b58 48%, #8bb76a);
+    }
+
+    .photo.alt {
+      background:
+        radial-gradient(circle at 65% 22%, rgba(255,255,255,.8), transparent 0 10%, transparent 11%),
+        linear-gradient(135deg, #9fb86a, #7CB342 45%, #1E9E8A);
+    }
+
+    .photo.light {
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,.75), transparent 0 12%, transparent 13%),
+        linear-gradient(135deg, #f0ddbf, #bfa56b 42%, #C1A79C);
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 12px;
+    }
+
+    .card h3 {
+      margin: 10px 0 3px;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .meta-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .home-layout {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .hero {
+      min-height: 390px;
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      color: #fff;
+      background:
+        linear-gradient(180deg, rgba(36,34,31,0.08), rgba(36,34,31,0.62)),
+        linear-gradient(135deg, #d9c69c, #C1A79C 46%, #7CB342);
+    }
+
+    .hero h3 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 420px;
+      margin: 10px 0 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .split-card {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .gallery-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: 470px;
+    }
+
+    .side {
+      padding: 20px;
+      border-right: 1px solid var(--line);
+      background: #fbfaf7;
+    }
+
+    .side h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .side p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .gallery {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      align-content: start;
+    }
+
+    .map-layout {
+      position: relative;
+      min-height: 470px;
+      background:
+        linear-gradient(90deg, rgba(36,34,31,.07) 1px, transparent 1px),
+        linear-gradient(rgba(36,34,31,.07) 1px, transparent 1px),
+        #e9eee5;
+      background-size: 58px 58px;
+    }
+
+    .map-panel {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      width: 300px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      box-shadow: 0 14px 34px rgba(36, 34, 31, .12);
+    }
+
+    .pin {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: var(--found);
+      box-shadow: 0 4px 12px rgba(36,34,31,.18);
+    }
+
+    .timeline-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      padding: 20px;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .line-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .capture-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      padding: 20px;
+    }
+
+    .type-choice {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .choice {
+      min-height: 150px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--surface);
+    }
+
+    .choice strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .form-lines {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .field {
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfaf7;
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .big-photo {
+      min-height: 392px;
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(36,34,31,0.02), rgba(36,34,31,0.35)),
+        linear-gradient(135deg, #dec5a3, #C1A79C 44%, #7CB342);
+    }
+
+    @media (max-width: 760px) {
+      .direction-meta,
+      .home-layout,
+      .gallery-layout,
+      .timeline-layout,
+      .capture-layout,
+      .detail-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .direction-meta {
+        display: grid;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .side {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .map-panel {
+        position: static;
+        width: auto;
+        margin: 260px 16px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FoodLife Design Directions</h1>
+    <p class="intro">Six layout and interaction directions using the selected Porcelain & Market Green foundation. Made remains soft and home-like; Found can be more vivid and discovery-oriented.</p>
+  </header>
+
+  <main class="directions">
+    <section class="direction">
+      <div class="direction-meta">
+        <div>
+          <h2>1. Seasonal Cover Home</h2>
+          <p class="caption">A first screen led by one emotional seasonal image, with Made and Found memories supporting the current chapter.</p>
+        </div>
+        <div class="tag">Best for Home</div>
+      </div>
+      <div class="mock">
+        <div class="app">
+          <div class="topbar">
+            <div class="brand">FoodLife</div>
+            <div class="nav"><span class="active">Home</span><span>Made</span><span>Found</span><span>Timeline</span></div>
+            <div class="add">Add</div>
+          </div>
+          <div class="home-layout">
+            <div class="hero">
+              <h3>Your Spring Food Life</h3>
+              <p>You made cozy dishes at home and found fresh places worth remembering.</p>
+            </div>
+            <div class="stack">
+              <div class="card split-card"><div class="photo light"></div><div><h3>Tomato eggs</h3><p class="meta-text">Made · scallion, tomato · Apr 16</p></div></div>
+              <div class="card split-card"><div class="photo alt"></div><div><h3>Little Garden Cafe</h3><p class="meta-text">Found · first visit · Apr 20</p></div></div>
+              <div class="card"><h3>Seasonal note</h3><p class="meta-text">A gentle recap with photos first and only lightweight counts where helpful.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="direction">
+      <div class="direction-meta">
+        <div>
+          <h2>2. Made Gallery Calm</h2>
+          <p class="caption">A warm, restrained gallery that lets home-cooked photos breathe and reveals ingredient context progressively.</p>
+        </div>
+        <div class="tag">Best for Made</div>
+      </div>
+      <div class="mock">
+        <div class="app">
+          <div class="gallery-layout">
+            <aside class="side">
+              <h3>Made</h3>
+              <p>Food cooked by you, remembered through photos, ingredients, and small notes.</p>
+              <div class="pill" style="background:#eee5df;color:#7D5F55;display:inline-block;">Comfort meals</div>
+            </aside>
+            <div class="gallery">
+              <div class="card"><div class="photo light"></div><h3>Miso noodles</h3><p class="meta-text">miso, egg, scallion</p></div>
+              <div class="card"><div class="photo"></div><h3>Weekend toast</h3><p class="meta-text">tomato, basil</p></div>
+              <div class="card"><div class="photo light"></div><h3>Rice bowl</h3><p class="meta-text">mushroom, greens</p></div>
+              <div class="card"><div class="photo"></div><h3>Soup night</h3><p class="meta-text">ginger, chicken</p></div>
+              <div class="card"><div class="photo light"></div><h3>Simple pasta</h3><p class="meta-text">garlic, chili</p></div>
+              <div class="card"><div class="photo"></div><h3>Home curry</h3><p class="meta-text">potato, carrot</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="direction">
+      <div class="direction-meta">
+        <div>
+          <h2>3. Found Map Fresh</h2>
+          <p class="caption">A brighter Found world with vivid map pins and photo-led place previews, distinct from Made without becoming a search app.</p>
+        </div>
+        <div class="tag">Best for Found</div>
+      </div>
+      <div class="mock">
+        <div class="app">
+          <div class="topbar">
+            <div class="brand">Found</div>
+            <div class="nav"><span>List</span><span class="active">Map</span><span>First visits</span></div>
+            <div class="add">Add Found</div>
+          </div>
+          <div class="map-layout">
+            <span class="pin" style="left:18%;top:34%;"></span>
+            <span class="pin" style="left:46%;top:22%;"></span>
+            <span class="pin" style="left:64%;top:48%;"></span>
+            <span class="pin" style="left:32%;top:66%;"></span>
+            <div class="map-panel">
+              <div class="photo alt"></div>
+              <h3>Green Market Noodles</h3>
+              <p class="meta-text">Found · San Mateo · first visit · bright discovery note</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="direction">
+      <div class="direction-meta">
+        <div>
+          <h2>4. Timeline as Food Life</h2>
+          <p class="caption">A chronological mixed view where Made and Found stay visually distinct through labels, accents, and metadata hierarchy.</p>
+        </div>
+        <div class="tag">Best for rediscovery</div>
+      </div>
+      <div class="mock">
+        <div class="app">
+          <div class="timeline-layout">
+            <div>
+              <h2>April</h2>
+              <p class="caption">A combined view of what you cooked and where you ate.</p>
+              <div class="timeline-list">
+                <div class="line-item"><div class="photo light"></div><div><h3>Sesame rice bowl</h3><p class="meta-text">Made · Apr 28 · ingredients remembered</p></div></div>
+                <div class="line-item"><div class="photo alt"></div><div><h3>Corner Bakery</h3><p class="meta-text">Found · Apr 22 · walk-by discovery</p></div></div>
+                <div class="line-item"><div class="photo"></div><div><h3>Sunday soup</h3><p class="meta-text">Made · Apr 14 · cozy</p></div></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="photo alt" style="min-height:260px;"></div>
+              <h3>Latest discovery</h3>
+              <p class="meta-text">Found entries can stay vivid inside Timeline while the surrounding structure remains elegant.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="direction">
+      <div class="direction-meta">
+        <div>
+          <h2>5. Photo-First Capture</h2>
+          <p class="caption">A capture flow where Made or Found comes first, then the photo remains visible while lightweight details are entered.</p>
+        </div>
+        <div class="tag">Best for Add Memory</div>
+      </div>
+      <div class="mock">
+        <div class="app">
+          <div class="capture-layout">
+            <div>
+              <h2>Add Memory</h2>
+              <p class="caption">Choose the emotional context before the form appears.</p>
+              <div class="type-choice">
+                <div class="choice" style="border-color:rgba(193,167,156,.42);"><strong style="color:#7D5F55;">Made</strong><p class="meta-text">Food cooked by you at home.</p></div>
+                <div class="choice" style="border-color:rgba(124,179,66,.55);"><strong style="color:var(--found);">Found</strong><p class="meta-text">Food or places discovered outside.</p></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="photo alt" style="min-height:160px;"></div>
+              <div class="form-lines">
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="field"></div>
+                <div class="add" style="display:inline-block;width:max-content;">Save memory</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="direction">
+      <div class="direction-meta">
+        <div>
+          <h2>6. Editorial Detail View</h2>
+          <p class="caption">A detail page that treats the photo as the memory object and metadata as a quiet editorial caption system.</p>
+        </div>
+        <div class="tag">Best for details</div>
+      </div>
+      <div class="mock">
+        <div class="app">
+          <div class="detail-layout">
+            <div class="big-photo"></div>
+            <div class="stack">
+              <div>
+                <span class="pill" style="background:rgba(124,179,66,.16);color:#4f7e24;">Found</span>
+                <h2 style="margin-top:14px;">Market green dumplings</h2>
+                <p class="caption">Little Garden Cafe · Apr 20 · first visit</p>
+              </div>
+              <div class="card"><h3>Discovery note</h3><p class="meta-text">Found while walking after lunch. Bright, fresh, and worth remembering.</p></div>
+              <div class="card"><h3>Location</h3><p class="meta-text">Stored locally with the memory. Map service fallback keeps the note intact.</p></div>
+              <div class="add" style="width:max-content;background:var(--text);">Edit memory</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

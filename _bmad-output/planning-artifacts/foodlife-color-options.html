@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoodLife Color Options</title>
+  <style>
+    :root {
+      color: #242424;
+      background: #f7f5f0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+      background: #f7f5f0;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+      line-height: 1.15;
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      margin: 0 0 28px;
+      max-width: 760px;
+      color: #6f6b63;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .palette {
+      overflow: hidden;
+      border: 1px solid rgba(36, 36, 36, 0.1);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(36, 36, 36, 0.06);
+    }
+
+    .preview {
+      min-height: 190px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .sample-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 128px;
+      padding: 18px;
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.055);
+    }
+
+    .sample-title {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+
+    .sample-copy {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .mini-ui {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .mini-panel {
+      border-radius: 8px;
+      padding: 14px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 750;
+      display: flex;
+      align-items: end;
+      min-height: 64px;
+    }
+
+    .meta {
+      padding: 20px 24px 24px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .best {
+      margin: 8px 0 18px;
+      color: #6f6b63;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .swatch {
+      min-width: 0;
+    }
+
+    .block {
+      height: 52px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .label {
+      margin-top: 7px;
+      color: #4d4a45;
+      font-size: 11px;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 860px) {
+      body {
+        padding: 24px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 18px;
+      }
+
+      .preview {
+        grid-template-columns: 1fr;
+      }
+
+      .swatches {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>FoodLife Color Options</h1>
+    <p class="intro">Rendered palette samples for an elegant FoodLife direction where Made stays soft and home-like, while Found can become brighter and more vivid as a distinct discovery style.</p>
+
+    <section class="grid">
+      <article class="palette" style="--bg:#F7F5F0;--surface:#FFFFFF;--text:#24221F;--made:#C1A79C;--found:#2FAF8F;--seasonal:#B9A36A;--accent:#2D8FB3;--muted:#7B7770;">
+        <div class="preview" style="background: var(--bg);">
+          <div class="sample-card">
+            <div>
+              <p class="sample-title">Porcelain Made, Vivid Found</p>
+              <p class="sample-copy">Soft home memories with brighter discovery energy.</p>
+            </div>
+            <div class="chips">
+              <span class="chip" style="background: var(--made);">Made</span>
+              <span class="chip" style="background: var(--found);">Found</span>
+              <span class="chip" style="background: var(--seasonal); color:#24221F;">Season</span>
+            </div>
+          </div>
+          <div class="mini-ui">
+            <div class="mini-panel" style="background: var(--made);">Home-cooked warmth</div>
+            <div class="mini-panel" style="background: var(--found);">Dining discovery</div>
+          </div>
+        </div>
+        <div class="meta">
+          <h2>Option 1: Porcelain Made, Vivid Found</h2>
+          <p class="best">Best match for your direction: elegant Made/Home styling with a distinct, lively Found world.</p>
+          <div class="swatches">
+            <div class="swatch"><div class="block" style="background:#F7F5F0;"></div><div class="label">Background<br>#F7F5F0</div></div>
+            <div class="swatch"><div class="block" style="background:#FFFFFF;"></div><div class="label">Surface<br>#FFFFFF</div></div>
+            <div class="swatch"><div class="block" style="background:#24221F;"></div><div class="label">Text<br>#24221F</div></div>
+            <div class="swatch"><div class="block" style="background:#C1A79C;"></div><div class="label">Made<br>#C1A79C</div></div>
+            <div class="swatch"><div class="block" style="background:#2FAF8F;"></div><div class="label">Found<br>#2FAF8F</div></div>
+            <div class="swatch"><div class="block" style="background:#B9A36A;"></div><div class="label">Seasonal<br>#B9A36A</div></div>
+            <div class="swatch"><div class="block" style="background:#2D8FB3;"></div><div class="label">Accent<br>#2D8FB3</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="palette" style="--bg:#F7F5F0;--surface:#FFFFFF;--text:#24221F;--made:#C1A79C;--found:#38B6C6;--seasonal:#B9A36A;--accent:#6C7DD9;--muted:#7B7770;">
+        <div class="preview" style="background: var(--bg);">
+          <div class="sample-card">
+            <div>
+              <p class="sample-title">Porcelain & Lagoon</p>
+              <p class="sample-copy">Warm home archive plus brighter map-led discovery.</p>
+            </div>
+            <div class="chips">
+              <span class="chip" style="background: var(--made);">Made</span>
+              <span class="chip" style="background: var(--found);">Found</span>
+              <span class="chip" style="background: var(--seasonal);">Home</span>
+            </div>
+          </div>
+          <div class="mini-ui">
+            <div class="mini-panel" style="background: var(--made);">Made gallery</div>
+            <div class="mini-panel" style="background: var(--found);">Found map</div>
+          </div>
+        </div>
+        <div class="meta">
+          <h2>Option 2: Porcelain & Lagoon</h2>
+          <p class="best">Best if Found should feel fresher, happier, and more digital without becoming loud.</p>
+          <div class="swatches">
+            <div class="swatch"><div class="block" style="background:#F7F5F0;"></div><div class="label">Background<br>#F7F5F0</div></div>
+            <div class="swatch"><div class="block" style="background:#FFFFFF;"></div><div class="label">Surface<br>#FFFFFF</div></div>
+            <div class="swatch"><div class="block" style="background:#24221F;"></div><div class="label">Text<br>#24221F</div></div>
+            <div class="swatch"><div class="block" style="background:#C1A79C;"></div><div class="label">Made<br>#C1A79C</div></div>
+            <div class="swatch"><div class="block" style="background:#38B6C6;"></div><div class="label">Found<br>#38B6C6</div></div>
+            <div class="swatch"><div class="block" style="background:#B9A36A;"></div><div class="label">Seasonal<br>#B9A36A</div></div>
+            <div class="swatch"><div class="block" style="background:#6C7DD9;"></div><div class="label">Accent<br>#6C7DD9</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="palette" style="--bg:#F7F5F0;--surface:#FFFFFF;--text:#24221F;--made:#C1A79C;--found:#7CB342;--seasonal:#B9A36A;--accent:#1E9E8A;--muted:#7B7770;">
+        <div class="preview" style="background: var(--bg);">
+          <div class="sample-card">
+            <div>
+              <p class="sample-title">Porcelain & Market Green</p>
+              <p class="sample-copy">Home warmth paired with vivid food-market freshness.</p>
+            </div>
+            <div class="chips">
+              <span class="chip" style="background: var(--made);">Made</span>
+              <span class="chip" style="background: var(--found);">Found</span>
+              <span class="chip" style="background: var(--accent);">Map</span>
+            </div>
+          </div>
+          <div class="mini-ui">
+            <div class="mini-panel" style="background: var(--found);">New place found</div>
+            <div class="mini-panel" style="background: var(--seasonal); color:#252722;">Summer food life</div>
+          </div>
+        </div>
+        <div class="meta">
+          <h2>Option 3: Porcelain & Market Green</h2>
+          <p class="best">Best if Found should feel bright, fresh, and food-adjacent rather than map-blue.</p>
+          <div class="swatches">
+            <div class="swatch"><div class="block" style="background:#F7F5F0;"></div><div class="label">Background<br>#F7F5F0</div></div>
+            <div class="swatch"><div class="block" style="background:#FFFFFF;"></div><div class="label">Surface<br>#FFFFFF</div></div>
+            <div class="swatch"><div class="block" style="background:#24221F;"></div><div class="label">Text<br>#24221F</div></div>
+            <div class="swatch"><div class="block" style="background:#C1A79C;"></div><div class="label">Made<br>#C1A79C</div></div>
+            <div class="swatch"><div class="block" style="background:#7CB342;"></div><div class="label">Found<br>#7CB342</div></div>
+            <div class="swatch"><div class="block" style="background:#B9A36A;"></div><div class="label">Seasonal<br>#B9A36A</div></div>
+            <div class="swatch"><div class="block" style="background:#1E9E8A;"></div><div class="label">Accent<br>#1E9E8A</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="palette" style="--bg:#F7F5F0;--surface:#FFFFFF;--text:#24221F;--made:#C1A79C;--found:#F2B84B;--seasonal:#B9A36A;--accent:#2E9E8E;--muted:#7B7770;">
+        <div class="preview" style="background: var(--bg);">
+          <div class="sample-card">
+            <div>
+              <p class="sample-title">Porcelain & Sunlit Found</p>
+              <p class="sample-copy">Soft home archive with joyful, bright discovery moments.</p>
+            </div>
+            <div class="chips">
+              <span class="chip" style="background: var(--made);">Made</span>
+              <span class="chip" style="background: var(--found);">Found</span>
+              <span class="chip" style="background: var(--accent);">Timeline</span>
+            </div>
+          </div>
+          <div class="mini-ui">
+            <div class="mini-panel" style="background: var(--text);">Private archive</div>
+            <div class="mini-panel" style="background: var(--found);">Place memory</div>
+          </div>
+        </div>
+        <div class="meta">
+          <h2>Option 4: Porcelain & Sunlit Found</h2>
+          <p class="best">Best if Found should feel happiest and most vivid, with yellow used carefully.</p>
+          <div class="swatches">
+            <div class="swatch"><div class="block" style="background:#F7F5F0;"></div><div class="label">Background<br>#F7F5F0</div></div>
+            <div class="swatch"><div class="block" style="background:#FFFFFF;"></div><div class="label">Surface<br>#FFFFFF</div></div>
+            <div class="swatch"><div class="block" style="background:#24221F;"></div><div class="label">Text<br>#24221F</div></div>
+            <div class="swatch"><div class="block" style="background:#C1A79C;"></div><div class="label">Made<br>#C1A79C</div></div>
+            <div class="swatch"><div class="block" style="background:#F2B84B;"></div><div class="label">Found<br>#F2B84B</div></div>
+            <div class="swatch"><div class="block" style="background:#B9A36A;"></div><div class="label">Seasonal<br>#B9A36A</div></div>
+            <div class="swatch"><div class="block" style="background:#2E9E8E;"></div><div class="label">Accent<br>#2E9E8E</div></div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

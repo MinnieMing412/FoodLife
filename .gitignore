@@ -19,3 +19,11 @@ Thumbs.db
 
 # Logs
 *.log
+
+# AI agent
+.agents
+_bmad/*
+!_bmad/custom/
+_bmad/custom/*
+!_bmad/custom/bmad-*.toml
+_bmad/custom/*.user.toml

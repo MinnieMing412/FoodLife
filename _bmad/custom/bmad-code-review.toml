@@ -1,0 +1,12 @@
+[workflow]
+on_complete = """
+Synchronize the GitHub sprint tracking project after code review updates story status. This updates status labels, GitHub Project Status, and story sub-issue links to the corresponding epic.
+
+Run from {project-root}:
+`scripts/github/sync-sprint-status.sh`
+
+If GitHub CLI is missing, not authenticated, or lacks project scopes, explain the exact command the user must run:
+`gh auth login`
+or
+`gh auth refresh -s read:project -s project`
+"""
