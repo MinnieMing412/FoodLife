@@ -10,7 +10,7 @@ if ! command -v gh >/dev/null 2>&1; then
   exit 1
 fi
 
-gh auth status >/dev/null
+gh auth status -h github.com >/dev/null
 
 REPOSITORY="${GITHUB_REPOSITORY:-}"
 if [[ -z "$REPOSITORY" ]]; then

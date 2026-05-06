@@ -4,10 +4,10 @@ persistent_facts = [
 ]
 
 on_complete = """
-Synchronize the GitHub sprint tracking project after story implementation updates story status. This updates status labels, GitHub Project Status, and story sub-issue links to the corresponding epic.
+After story implementation completes and the story is ready for review, finalize the story delivery by creating or updating the pull request, writing the PR link and completion summary back to the corresponding story, marking the story done, and syncing GitHub issue and Project status.
 
 Run from {project-root}:
-`scripts/github/sync-sprint-status.sh`
+`STORY_FILE="{story_file}" scripts/github/complete-story.sh`
 
 If GitHub CLI is missing, not authenticated, or lacks project scopes, explain the exact command the user must run:
 `gh auth login`

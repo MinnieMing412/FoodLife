@@ -46,11 +46,18 @@ so that FoodLife feels like one coherent local-first archive across platforms.
   - [x] Make Made/Found labels visible as text, not color-only cues.
   - [x] Avoid recipe, restaurant review, nutrition, analytics, social feed, account, or cloud language in placeholder UI.
 
+### Pull Request
+
+- Draft PR: https://github.com/MinnieMing412/FoodLife/pull/40
+- PR branch: `codex/story-1-1-initial-project-shells`
+- PR target: `main`
+- Final PR scope: Story 1.1 app/package starter shells plus the restored GitHub start-story sync automation requested after review.
+
 ### Review Findings
 
-- [x] [Review][Decision] Decide whether GitHub start-story automation belongs in Story 1.1 — resolved by removing the out-of-scope `scripts/github/start-story.sh` addition and reverting `_bmad/custom/bmad-dev-story.toml` to the existing completion-sync behavior.
-- [x] [Review][Patch] GitHub start-story script can leave partially-mutated issue state if Project lookup/status update fails [scripts/github/start-story.sh:166] — resolved by removing the out-of-scope script from Story 1.1.
-- [x] [Review][Patch] Dev Agent File List omits workflow automation files changed by this story [_bmad-output/implementation-artifacts/1-1-set-up-initial-project-from-starter-templates.md:201] — resolved by removing the out-of-scope workflow automation changes from this story.
+- [x] [Review][Decision] Decide whether GitHub start-story automation belongs in Story 1.1 — initially treated as out-of-scope for the story ACs, then restored by user request as a companion workflow automation change in the same PR.
+- [x] [Review][Patch] GitHub start-story script can leave partially-mutated issue state if Project lookup/status update fails [scripts/github/start-story.sh:166] — resolved by restoring the script with GitHub Project/status preflight before issue body and label mutation.
+- [x] [Review][Patch] Dev Agent File List omits workflow automation files changed by this story [_bmad-output/implementation-artifacts/1-1-set-up-initial-project-from-starter-templates.md:201] — resolved by documenting the companion workflow files in the final file list.
 - [x] [Review][Patch] Web placeholder sections generate invalid ARIA ids for headings with spaces [apps/web/src/App.tsx:19]
 - [x] [Review][Patch] Unused Vite/demo assets and social starter artifacts remain committed [apps/web/src/App.css:1]
 - [x] [Review][Patch] Web build/test tooling is listed as production dependencies instead of devDependencies [apps/web/package.json:13]
@@ -210,7 +217,10 @@ GPT-5 Codex
 - Added SwiftUI-native tab/navigation placeholders for Home, Made, Found, Timeline, Add Memory, and Detail/Edit.
 - Documented web setup/build/test commands, iOS `xcodebuild` verification commands, Xcode template recreation choices, and sandbox-only CoreSimulator runtime limitations in `README.md`.
 - Verified `npm install`, `npm run test`, `npm run lint`, `npm run build`, `xcodebuild ... build`, and `xcodebuild ... build-for-testing`.
-- Addressed code review findings by fixing web ARIA heading IDs, removing unused Vite starter artifacts, moving web build/test tooling to devDependencies, replacing the web README with FoodLife setup docs, setting the web title to FoodLife, and removing out-of-scope GitHub start-story automation from this story.
+- Addressed code review findings by fixing web ARIA heading IDs, removing unused Vite starter artifacts, moving web build/test tooling to devDependencies, replacing the web README with FoodLife setup docs, setting the web title to FoodLife, and adding the missing iOS asset catalog.
+- Restored `scripts/github/start-story.sh` and the `bmad-dev-story` persistent hook by user request as companion workflow automation in PR #40; the restored script preflights GitHub Project metadata before mutating issue body or labels.
+- Published draft PR #40 for review: https://github.com/MinnieMing412/FoodLife/pull/40
+- Added `scripts/github/complete-story.sh` and updated the `bmad-dev-story` completion hook so future completed dev stories create or update a draft PR, write the PR link and completion summary back to the story/GitHub issue, mark the story done, and sync GitHub Project status.
 
 ### File List
 
@@ -218,6 +228,7 @@ GPT-5 Codex
 - `README.md`
 - `_bmad-output/implementation-artifacts/1-1-set-up-initial-project-from-starter-templates.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
+- `_bmad/custom/bmad-dev-story.toml`
 - `apps/ios/FoodLife.xcodeproj/project.pbxproj`
 - `apps/ios/FoodLife/Assets.xcassets/Contents.json`
 - `apps/ios/FoodLife/Assets.xcassets/AppIcon.appiconset/Contents.json`
@@ -243,7 +254,11 @@ GPT-5 Codex
 - `apps/web/tsconfig.node.json`
 - `apps/web/vite.config.ts`
 - `packages/schema-contract/README.md`
+- `scripts/github/complete-story.sh`
+- `scripts/github/start-story.sh`
 
 ### Change Log
 
 - 2026-05-04: Implemented Story 1.1 starter app/package structure, web shell, iOS shell, setup documentation, and verification coverage.
+- 2026-05-05: Created draft PR #40 from clean `main` branch, restored start-story GitHub sync automation by user request, and updated story record with PR tracking.
+- 2026-05-05: Added post-dev story completion automation to create/update PRs, update story records, and sync done status.
