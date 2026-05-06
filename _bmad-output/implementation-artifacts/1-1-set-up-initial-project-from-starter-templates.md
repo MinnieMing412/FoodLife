@@ -1,6 +1,6 @@
 # Story 1.1: Set Up Initial Project from Starter Templates
 
-Status: ready-for-dev
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -21,30 +21,49 @@ so that FoodLife feels like one coherent local-first archive across platforms.
 
 ## Tasks / Subtasks
 
-- [ ] Create the repository app/package structure (AC: 1, 6)
-  - [ ] Create `apps/ios`, `apps/web`, and `packages/schema-contract`.
-  - [ ] Keep `packages/schema-contract` minimal for this story; add a README or placeholder only. Do not define FoodMemory schema fixtures yet; that is Story 1.2.
-  - [ ] Do not add backend folders, API clients, auth providers, cloud sync placeholders, server deployment files, or fake remote services.
-- [ ] Initialize the web shell from the official Vite React TypeScript starter (AC: 2, 4, 6)
-  - [ ] Run `npm create vite@latest apps/web -- --template react-ts` from the repo root.
-  - [ ] Install web dependencies from `apps/web`.
-  - [ ] Add React Router, Tailwind CSS via the Vite plugin, and Vitest if the Vite starter does not include the needed test script.
-  - [ ] Replace starter demo UI with a FoodLife app shell and route placeholders for `/`, `/made`, `/found`, `/timeline`, `/add`, and detail/edit placeholders such as `/memories/:memoryId` and `/memories/:memoryId/edit`.
-  - [ ] Ensure route placeholder text uses the product destinations: Home, Made, Found, Timeline, Add Memory, Detail/Edit.
-- [ ] Initialize the iOS shell from the native SwiftUI Xcode app template (AC: 1, 3, 5, 6)
-  - [ ] Create an iOS App project named `FoodLife` under `apps/ios`.
-  - [ ] Use Swift as the language and SwiftUI as the interface.
-  - [ ] Include unit tests and UI tests.
-  - [ ] Add a minimal SwiftUI navigation shell with conceptual placeholders for Home, Made, Found, Timeline, Add Memory, and Detail/Edit.
-  - [ ] If Xcode project creation cannot be automated faithfully by CLI, document the exact Xcode template steps and verify the resulting project locally.
-- [ ] Document verification commands and results (AC: 4, 5)
-  - [ ] Add or update setup documentation with web install, test, and production build commands.
-  - [ ] Run and record the web install command, initial test command, and production build command.
-  - [ ] Run an iOS local build through Xcode or `xcodebuild` if the generated project/scheme allows it; otherwise document the Xcode automation constraint explicitly.
-- [ ] Keep the shell aligned with FoodLife UX and architecture boundaries (AC: 2, 3, 6)
-  - [ ] Use platform-appropriate navigation; web can use React Router, iOS should use SwiftUI-native navigation/tab patterns.
-  - [ ] Make Made/Found labels visible as text, not color-only cues.
-  - [ ] Avoid recipe, restaurant review, nutrition, analytics, social feed, account, or cloud language in placeholder UI.
+- [x] Create the repository app/package structure (AC: 1, 6)
+  - [x] Create `apps/ios`, `apps/web`, and `packages/schema-contract`.
+  - [x] Keep `packages/schema-contract` minimal for this story; add a README or placeholder only. Do not define FoodMemory schema fixtures yet; that is Story 1.2.
+  - [x] Do not add backend folders, API clients, auth providers, cloud sync placeholders, server deployment files, or fake remote services.
+- [x] Initialize the web shell from the official Vite React TypeScript starter (AC: 2, 4, 6)
+  - [x] Run `npm create vite@latest apps/web -- --template react-ts` from the repo root.
+  - [x] Install web dependencies from `apps/web`.
+  - [x] Add React Router, Tailwind CSS via the Vite plugin, and Vitest if the Vite starter does not include the needed test script.
+  - [x] Replace starter demo UI with a FoodLife app shell and route placeholders for `/`, `/made`, `/found`, `/timeline`, `/add`, and detail/edit placeholders such as `/memories/:memoryId` and `/memories/:memoryId/edit`.
+  - [x] Ensure route placeholder text uses the product destinations: Home, Made, Found, Timeline, Add Memory, Detail/Edit.
+- [x] Initialize the iOS shell from the native SwiftUI Xcode app template (AC: 1, 3, 5, 6)
+  - [x] Create an iOS App project named `FoodLife` under `apps/ios`.
+  - [x] Use Swift as the language and SwiftUI as the interface.
+  - [x] Include unit tests and UI tests.
+  - [x] Add a minimal SwiftUI navigation shell with conceptual placeholders for Home, Made, Found, Timeline, Add Memory, and Detail/Edit.
+  - [x] If Xcode project creation cannot be automated faithfully by CLI, document the exact Xcode template steps and verify the resulting project locally.
+- [x] Document verification commands and results (AC: 4, 5)
+  - [x] Add or update setup documentation with web install, test, and production build commands.
+  - [x] Run and record the web install command, initial test command, and production build command.
+  - [x] Run an iOS local build through Xcode or `xcodebuild` if the generated project/scheme allows it; otherwise document the Xcode automation constraint explicitly.
+- [x] Keep the shell aligned with FoodLife UX and architecture boundaries (AC: 2, 3, 6)
+  - [x] Use platform-appropriate navigation; web can use React Router, iOS should use SwiftUI-native navigation/tab patterns.
+  - [x] Make Made/Found labels visible as text, not color-only cues.
+  - [x] Avoid recipe, restaurant review, nutrition, analytics, social feed, account, or cloud language in placeholder UI.
+
+### Pull Request
+
+- Draft PR: https://github.com/MinnieMing412/FoodLife/pull/40
+- PR branch: `codex/story-1-1-initial-project-shells`
+- PR target: `main`
+- Final PR scope: Story 1.1 app/package starter shells plus the restored GitHub start-story sync automation requested after review.
+
+### Review Findings
+
+- [x] [Review][Decision] Decide whether GitHub start-story automation belongs in Story 1.1 — initially treated as out-of-scope for the story ACs, then restored by user request as a companion workflow automation change in the same PR.
+- [x] [Review][Patch] GitHub start-story script can leave partially-mutated issue state if Project lookup/status update fails [scripts/github/start-story.sh:166] — resolved by restoring the script with GitHub Project/status preflight before issue body and label mutation.
+- [x] [Review][Patch] Dev Agent File List omits workflow automation files changed by this story [_bmad-output/implementation-artifacts/1-1-set-up-initial-project-from-starter-templates.md:201] — resolved by documenting the companion workflow files in the final file list.
+- [x] [Review][Patch] Web placeholder sections generate invalid ARIA ids for headings with spaces [apps/web/src/App.tsx:19]
+- [x] [Review][Patch] Unused Vite/demo assets and social starter artifacts remain committed [apps/web/src/App.css:1]
+- [x] [Review][Patch] Web build/test tooling is listed as production dependencies instead of devDependencies [apps/web/package.json:13]
+- [x] [Review][Patch] Web README still contains generic Vite starter documentation instead of FoodLife setup and verification [apps/web/README.md:1]
+- [x] [Review][Patch] Web document title is still the generic starter title [apps/web/index.html:7]
+- [x] [Review][Patch] iOS project references an AppIcon asset catalog that is not present in the project [apps/ios/FoodLife.xcodeproj/project.pbxproj:33]
 
 ## Dev Notes
 
@@ -168,17 +187,78 @@ packages/
 
 ### Agent Model Used
 
-TBD by dev agent.
+GPT-5 Codex
 
 ### Debug Log References
 
-TBD by dev agent.
+- `npm create vite@latest apps/web -- --template react-ts` initially failed in the restricted sandbox with `ENOTFOUND registry.npmjs.org`; reran with approved network access and scaffolded successfully.
+- `npm install` in `apps/web` initially hung in the restricted sandbox; terminated and reran with approved network access successfully.
+- Initial Vitest app-shell tests failed against the Vite starter UI as expected in the red phase; implementation then made them pass.
+- `xcodebuild -list` found the generated `FoodLife` scheme and targets, while reporting sandbox-only CoreSimulator service warnings.
+- First iOS build failed on the SwiftUI `#Preview` macro because the sandbox could not start Apple's plugin server; removed the preview-only macro and reran successfully.
+- First iOS `build-for-testing` failed on Swift 6 main-actor isolation in the UI test; added `@MainActor` to the UI test and reran successfully.
+
+### Implementation Plan
+
+- Scaffold separate platform shells in `apps/web` and `apps/ios`, with a minimal `packages/schema-contract` placeholder only.
+- Use Vite React TypeScript, React Router declarative routes, Tailwind through `@tailwindcss/vite`, and Vitest/Testing Library for a small shell-rendering test.
+- Use a SwiftUI `TabView` plus `NavigationStack` placeholders for iOS, with unit and UI test targets included in the Xcode project.
+- Keep all UI copy within FoodLife's local-first Made/Found archive concept and avoid backend, auth, cloud, social, recipe, restaurant review, nutrition, analytics, or API placeholders.
 
 ### Completion Notes List
 
 - Story context created on 2026-05-03.
 - Ultimate context engine analysis completed - comprehensive developer guide created.
+- Created `apps/ios`, `apps/web`, and `packages/schema-contract`; schema contract remains README-only for Story 1.1.
+- Initialized `apps/web` from the Vite React TypeScript starter and replaced the starter demo with FoodLife routes for Home, Made, Found, Timeline, Add Memory, Detail View, and Edit Memory.
+- Added React Router, Tailwind via the Vite plugin, Vitest, Testing Library, and a focused app-shell test covering primary destinations plus detail/edit placeholders.
+- Created an Xcode-compatible native SwiftUI project under `apps/ios` named `FoodLife`, including app, unit-test, and UI-test targets.
+- Added the starter iOS asset catalog with an AppIcon set and wired it into the app resources.
+- Added SwiftUI-native tab/navigation placeholders for Home, Made, Found, Timeline, Add Memory, and Detail/Edit.
+- Documented web setup/build/test commands, iOS `xcodebuild` verification commands, Xcode template recreation choices, and sandbox-only CoreSimulator runtime limitations in `README.md`.
+- Verified `npm install`, `npm run test`, `npm run lint`, `npm run build`, `xcodebuild ... build`, and `xcodebuild ... build-for-testing`.
+- Addressed code review findings by fixing web ARIA heading IDs, removing unused Vite starter artifacts, moving web build/test tooling to devDependencies, replacing the web README with FoodLife setup docs, setting the web title to FoodLife, and adding the missing iOS asset catalog.
+- Restored `scripts/github/start-story.sh` and the `bmad-dev-story` persistent hook by user request as companion workflow automation in PR #40; the restored script preflights GitHub Project metadata before mutating issue body or labels.
+- Published draft PR #40 for review: https://github.com/MinnieMing412/FoodLife/pull/40
+- Added `scripts/github/complete-story.sh` and updated the `bmad-dev-story` completion hook so future completed dev stories create or update a draft PR, write the PR link and completion summary back to the story/GitHub issue, mark the story done, and sync GitHub Project status.
 
 ### File List
 
-TBD by dev agent.
+- `.gitignore`
+- `README.md`
+- `_bmad-output/implementation-artifacts/1-1-set-up-initial-project-from-starter-templates.md`
+- `_bmad-output/implementation-artifacts/sprint-status.yaml`
+- `_bmad/custom/bmad-dev-story.toml`
+- `apps/ios/FoodLife.xcodeproj/project.pbxproj`
+- `apps/ios/FoodLife/Assets.xcassets/Contents.json`
+- `apps/ios/FoodLife/Assets.xcassets/AppIcon.appiconset/Contents.json`
+- `apps/ios/FoodLife/ContentView.swift`
+- `apps/ios/FoodLife/FoodLifeApp.swift`
+- `apps/ios/FoodLifeTests/FoodLifeTests.swift`
+- `apps/ios/FoodLifeUITests/FoodLifeUITests.swift`
+- `apps/web/.gitignore`
+- `apps/web/README.md`
+- `apps/web/eslint.config.js`
+- `apps/web/index.html`
+- `apps/web/package-lock.json`
+- `apps/web/package.json`
+- `apps/web/public/favicon.svg`
+- `apps/web/src/App.test.tsx`
+- `apps/web/src/App.tsx`
+- `apps/web/src/assets/hero.png`
+- `apps/web/src/index.css`
+- `apps/web/src/main.tsx`
+- `apps/web/src/test-setup.ts`
+- `apps/web/tsconfig.app.json`
+- `apps/web/tsconfig.json`
+- `apps/web/tsconfig.node.json`
+- `apps/web/vite.config.ts`
+- `packages/schema-contract/README.md`
+- `scripts/github/complete-story.sh`
+- `scripts/github/start-story.sh`
+
+### Change Log
+
+- 2026-05-04: Implemented Story 1.1 starter app/package structure, web shell, iOS shell, setup documentation, and verification coverage.
+- 2026-05-05: Created draft PR #40 from clean `main` branch, restored start-story GitHub sync automation by user request, and updated story record with PR tracking.
+- 2026-05-05: Added post-dev story completion automation to create/update PRs, update story records, and sync done status.
