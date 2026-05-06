@@ -1,4 +1,8 @@
 [workflow]
+persistent_facts = [
+  "Before implementation begins for every populated story file, run `STORY_FILE=\"{story_file}\" scripts/github/start-story.sh` from {project-root}. This syncs the corresponding GitHub issue body with the story description and Acceptance Criteria, removes stale status labels, and moves the GitHub Project item to In Progress. If the story lacks populated `## Story` or `## Acceptance Criteria` sections, or GitHub CLI access is unavailable, halt before implementation and explain the required fix.",
+]
+
 on_complete = """
 Synchronize the GitHub sprint tracking project after story implementation updates story status. This updates status labels, GitHub Project Status, and story sub-issue links to the corresponding epic.
 
