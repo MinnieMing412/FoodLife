@@ -220,6 +220,7 @@ GPT-5 Codex
 - Addressed code review findings by fixing web ARIA heading IDs, removing unused Vite starter artifacts, moving web build/test tooling to devDependencies, replacing the web README with FoodLife setup docs, setting the web title to FoodLife, and adding the missing iOS asset catalog.
 - Restored `scripts/github/start-story.sh` and the `bmad-dev-story` persistent hook by user request as companion workflow automation in PR #40; the restored script preflights GitHub Project metadata before mutating issue body or labels.
 - Published draft PR #40 for review: https://github.com/MinnieMing412/FoodLife/pull/40
+- Added `scripts/github/complete-story.sh` and updated the `bmad-dev-story` completion hook so future completed dev stories create or update a draft PR, write the PR link and completion summary back to the story/GitHub issue, mark the story done, and sync GitHub Project status.
 
 ### File List
 
@@ -253,9 +254,11 @@ GPT-5 Codex
 - `apps/web/tsconfig.node.json`
 - `apps/web/vite.config.ts`
 - `packages/schema-contract/README.md`
+- `scripts/github/complete-story.sh`
 - `scripts/github/start-story.sh`
 
 ### Change Log
 
 - 2026-05-04: Implemented Story 1.1 starter app/package structure, web shell, iOS shell, setup documentation, and verification coverage.
 - 2026-05-05: Created draft PR #40 from clean `main` branch, restored start-story GitHub sync automation by user request, and updated story record with PR tracking.
+- 2026-05-05: Added post-dev story completion automation to create/update PRs, update story records, and sync done status.
