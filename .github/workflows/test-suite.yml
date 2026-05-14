@@ -1,0 +1,125 @@
+name: Test Suite
+
+on:
+  push:
+    # Keep main here so every commit merged to main gets a validation run.
+    # Add or remove dev branch patterns here as the team branch naming changes.
+    branches:
+      - main
+      - codex/**
+      - dev/**
+      - feature/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  web-and-schema:
+    name: Web and Schema Contract
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            apps/web/package-lock.json
+            packages/schema-contract/package-lock.json
+
+      - name: Install web dependencies
+        run: npm ci
+        working-directory: apps/web
+
+      - name: Run web tests
+        run: npm run test
+        working-directory: apps/web
+
+      - name: Run web lint
+        run: npm run lint
+        working-directory: apps/web
+
+      - name: Build web app
+        run: npm run build
+        working-directory: apps/web
+
+      - name: Install schema-contract dependencies
+        run: npm ci
+        working-directory: packages/schema-contract
+
+      - name: Run schema-contract tests
+        run: npm run test
+        working-directory: packages/schema-contract
+
+      - name: Validate schema-contract package
+        run: npm run validate
+        working-directory: packages/schema-contract
+
+      - name: Verify generated JSON Schema is current
+        run: |
+          npm run generate:schema
+          git diff --exit-code -- schemas/food-memory-v1.schema.json
+        working-directory: packages/schema-contract
+
+  ios:
+    name: iOS Build and Unit Tests
+    runs-on: macos-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Select available iPhone simulator
+        id: simulator
+        run: |
+          set -euo pipefail
+          simulator_id="$(
+            xcrun simctl list devices available |
+              awk -F '[()]' '/iPhone/ && /Shutdown|Booted/ { print $2; exit }'
+          )"
+
+          if [ -z "$simulator_id" ]; then
+            echo "No available iPhone simulator found." >&2
+            xcrun simctl list devices available
+            exit 1
+          fi
+
+          echo "id=$simulator_id" >> "$GITHUB_OUTPUT"
+
+      - name: Build iOS test bundles
+        run: |
+          xcodebuild build-for-testing \
+            -project apps/ios/FoodLife.xcodeproj \
+            -scheme FoodLife \
+            -destination "platform=iOS Simulator,id=${{ steps.simulator.outputs.id }}" \
+            -derivedDataPath .build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Boot selected simulator
+        run: |
+          xcrun simctl boot "${{ steps.simulator.outputs.id }}" || true
+          xcrun simctl bootstatus "${{ steps.simulator.outputs.id }}" -b
+
+      - name: Run iOS unit tests
+        run: |
+          xcodebuild test-without-building \
+            -project apps/ios/FoodLife.xcodeproj \
+            -scheme FoodLife \
+            -destination "platform=iOS Simulator,id=${{ steps.simulator.outputs.id }}" \
+            -derivedDataPath .build/DerivedData \
+            -only-testing:FoodLifeTests \
+            -disable-concurrent-testing \
+            -parallel-testing-enabled NO \
+            CODE_SIGNING_ALLOWED=NO
