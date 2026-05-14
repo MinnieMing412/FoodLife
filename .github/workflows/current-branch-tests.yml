@@ -12,6 +12,9 @@ on:
 permissions:
   contents: read
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   web-and-schema:
     name: Web and Schema Contract
@@ -65,8 +68,9 @@ jobs:
         working-directory: packages/schema-contract
 
   ios:
-    name: iOS Tests
+    name: iOS Build and Unit Tests
     runs-on: macos-latest
+    timeout-minutes: 15
 
     steps:
       - name: Check out repository
@@ -92,11 +96,21 @@ jobs:
 
           echo "id=$simulator_id" >> "$GITHUB_OUTPUT"
 
-      - name: Run iOS tests
+      - name: Build iOS test bundles
         run: |
-          xcodebuild test \
+          xcodebuild build-for-testing \
             -project apps/ios/FoodLife.xcodeproj \
             -scheme FoodLife \
             -destination "platform=iOS Simulator,id=${{ steps.simulator.outputs.id }}" \
             -derivedDataPath .build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Run iOS unit tests
+        run: |
+          xcodebuild test-without-building \
+            -project apps/ios/FoodLife.xcodeproj \
+            -scheme FoodLife \
+            -destination "platform=iOS Simulator,id=${{ steps.simulator.outputs.id }}" \
+            -derivedDataPath .build/DerivedData \
+            -only-testing:FoodLifeTests \
             CODE_SIGNING_ALLOWED=NO
