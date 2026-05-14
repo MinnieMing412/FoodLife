@@ -57,6 +57,11 @@ so that my archive behaves the same on iOS and web.
   - [x] Do not implement `FoodMemoryRepository`, `PhotoStore`, IndexedDB, SwiftData, OPFS, map/geocoding, Add Memory UI, Made gallery, Found map, Timeline UI, or seasonal recap logic.
   - [x] Do not add backend folders, API clients, authentication, cloud sync, cloud photo storage, public sharing, or server deployment placeholders.
 
+### Pull Request
+
+- Draft PR: https://github.com/MinnieMing412/FoodLife/pull/42
+- PR branch: `codex/story-1-2-foodmemory-schema-contract`
+- PR target: `main`
 ## Dev Notes
 
 ### Current Repository State
