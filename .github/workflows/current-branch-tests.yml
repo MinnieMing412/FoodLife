@@ -105,6 +105,11 @@ jobs:
             -derivedDataPath .build/DerivedData \
             CODE_SIGNING_ALLOWED=NO
 
+      - name: Boot selected simulator
+        run: |
+          xcrun simctl boot "${{ steps.simulator.outputs.id }}" || true
+          xcrun simctl bootstatus "${{ steps.simulator.outputs.id }}" -b
+
       - name: Run iOS unit tests
         run: |
           xcodebuild test-without-building \
@@ -113,4 +118,6 @@ jobs:
             -destination "platform=iOS Simulator,id=${{ steps.simulator.outputs.id }}" \
             -derivedDataPath .build/DerivedData \
             -only-testing:FoodLifeTests \
+            -disable-concurrent-testing \
+            -parallel-testing-enabled NO \
             CODE_SIGNING_ALLOWED=NO
