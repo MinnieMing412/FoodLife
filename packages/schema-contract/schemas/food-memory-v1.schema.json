@@ -1,0 +1,245 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "const": "made"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "memoryDate": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "photoRefs": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "storageKind": {
+                "type": "string",
+                "enum": [
+                  "iosLocalFile",
+                  "webOpfs",
+                  "webIndexedDbBlob"
+                ]
+              },
+              "localKey": {
+                "type": "string",
+                "minLength": 1
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "thumbnailKey": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "storageKind",
+              "localKey",
+              "createdAt"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "dishName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ingredients": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "comfortLevel": {
+          "type": "string",
+          "enum": [
+            "everyday",
+            "cozy",
+            "celebratory"
+          ]
+        },
+        "madeContext": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "title",
+        "memoryDate",
+        "createdAt",
+        "updatedAt",
+        "photoRefs",
+        "schemaVersion",
+        "dishName",
+        "ingredients"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "const": "found"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "memoryDate": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "photoRefs": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "storageKind": {
+                "type": "string",
+                "enum": [
+                  "iosLocalFile",
+                  "webOpfs",
+                  "webIndexedDbBlob"
+                ]
+              },
+              "localKey": {
+                "type": "string",
+                "minLength": 1
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "thumbnailKey": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "storageKind",
+              "localKey",
+              "createdAt"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "restaurantName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locationLabel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "coordinate": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          "required": [
+            "latitude",
+            "longitude"
+          ],
+          "additionalProperties": false
+        },
+        "discoverySource": {
+          "type": "string",
+          "enum": [
+            "walkBy",
+            "friend",
+            "search",
+            "returnVisit"
+          ]
+        },
+        "firstVisit": {
+          "type": "boolean"
+        },
+        "foundContext": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "title",
+        "memoryDate",
+        "createdAt",
+        "updatedAt",
+        "photoRefs",
+        "schemaVersion",
+        "restaurantName",
+        "locationLabel"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

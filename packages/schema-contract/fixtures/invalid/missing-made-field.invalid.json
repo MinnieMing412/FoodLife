@@ -1,0 +1,18 @@
+{
+  "id": "missing-made-field",
+  "type": "made",
+  "title": "No dish name",
+  "memoryDate": "2026-04-18T19:30:00-07:00",
+  "createdAt": "2026-04-18T21:04:00-07:00",
+  "updatedAt": "2026-04-18T21:04:00-07:00",
+  "photoRefs": [
+    {
+      "id": "photo-invalid-4",
+      "storageKind": "webOpfs",
+      "localKey": "opfs://foodlife/photos/missing-made-field/main.jpeg",
+      "createdAt": "2026-04-18T21:03:12-07:00"
+    }
+  ],
+  "schemaVersion": 1,
+  "ingredients": ["miso"]
+}

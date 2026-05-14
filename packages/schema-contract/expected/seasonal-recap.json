@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "season": "spring-2026",
+  "memoryIds": [
+    "made-2026-04-18-miso-soup",
+    "found-2026-05-02-citrus-tart"
+  ],
+  "typeCounts": {
+    "made": 1,
+    "found": 1
+  }
+}

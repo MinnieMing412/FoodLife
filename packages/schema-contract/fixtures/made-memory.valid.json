@@ -1,0 +1,22 @@
+{
+  "id": "made-2026-04-18-miso-soup",
+  "type": "made",
+  "title": "Miso soup after the rain",
+  "memoryDate": "2026-04-18T19:30:00-07:00",
+  "createdAt": "2026-04-18T21:04:00-07:00",
+  "updatedAt": "2026-04-18T21:04:00-07:00",
+  "photoRefs": [
+    {
+      "id": "photo-made-miso-soup-1",
+      "storageKind": "webOpfs",
+      "localKey": "opfs://foodlife/photos/made-2026-04-18-miso-soup/main.jpeg",
+      "createdAt": "2026-04-18T21:03:12-07:00",
+      "thumbnailKey": "opfs://foodlife/photos/made-2026-04-18-miso-soup/thumb.jpeg"
+    }
+  ],
+  "schemaVersion": 1,
+  "dishName": "Miso Soup",
+  "ingredients": ["miso", "tofu", "wakame", "scallions"],
+  "comfortLevel": "cozy",
+  "madeContext": "Simple dinner after walking home in spring rain."
+}
