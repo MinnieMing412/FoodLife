@@ -1,9 +1,14 @@
-name: Current Branch Tests
+name: Test Suite
 
 on:
   push:
+    # Keep main here so every commit merged to main gets a validation run.
+    # Add or remove dev branch patterns here as the team branch naming changes.
     branches:
-      - codex/story-1-2-foodmemory-schema-contract
+      - main
+      - codex/**
+      - dev/**
+      - feature/**
   pull_request:
     branches:
       - main
