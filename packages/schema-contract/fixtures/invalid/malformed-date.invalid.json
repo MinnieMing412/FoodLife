@@ -1,0 +1,19 @@
+{
+  "id": "malformed-date",
+  "type": "made",
+  "title": "Bad date",
+  "memoryDate": "April 18, 2026",
+  "createdAt": "2026-04-18T21:04:00-07:00",
+  "updatedAt": "2026-04-18T21:04:00-07:00",
+  "photoRefs": [
+    {
+      "id": "photo-invalid-3",
+      "storageKind": "webOpfs",
+      "localKey": "opfs://foodlife/photos/malformed-date/main.jpeg",
+      "createdAt": "2026-04-18T21:03:12-07:00"
+    }
+  ],
+  "schemaVersion": 1,
+  "dishName": "Soup",
+  "ingredients": ["miso"]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "found-2026-05-02-citrus-tart",
+  "type": "found",
+  "title": "Citrus tart at the corner bakery",
+  "memoryDate": "2026-05-02T15:10:00-07:00",
+  "createdAt": "2026-05-02T15:42:00-07:00",
+  "updatedAt": "2026-05-02T15:42:00-07:00",
+  "photoRefs": [
+    {
+      "id": "photo-found-citrus-tart-1",
+      "storageKind": "iosLocalFile",
+      "localKey": "file:///private/var/mobile/Containers/Data/FoodLife/photos/found-2026-05-02-citrus-tart.jpeg",
+      "createdAt": "2026-05-02T15:40:18-07:00"
+    }
+  ],
+  "note": "Bright lemon and a quiet table by the window.",
+  "schemaVersion": 1,
+  "restaurantName": "Corner Bakery",
+  "locationLabel": "Hayes Valley, San Francisco",
+  "coordinate": {
+    "latitude": 37.7765,
+    "longitude": -122.4241
+  },
+  "discoverySource": "walkBy",
+  "firstVisit": true,
+  "foundContext": "Found while taking a longer route home."
+}
