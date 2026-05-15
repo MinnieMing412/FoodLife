@@ -7,6 +7,7 @@ on:
     branches:
       - main
       - codex/**
+      - dev-*
       - dev/**
       - feature/**
   workflow_dispatch:
