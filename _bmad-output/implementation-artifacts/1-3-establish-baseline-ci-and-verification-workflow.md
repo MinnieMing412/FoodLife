@@ -40,6 +40,11 @@ so that implementation agents get fast feedback before feature work depends on t
   - [x] Run local iOS verification when Xcode and simulator services are available, or record the exact local command and the environment limitation if unavailable.
   - [x] If GitHub Actions is available after pushing the story branch, record the workflow run URL and final status in the Dev Agent Record.
 
+### Pull Request
+
+- Draft PR: https://github.com/MinnieMing412/FoodLife/pull/44
+- PR branch: `dev-1-3-establish-baseline-ci-and-verification-workflow`
+- PR target: `main`
 ## Dev Notes
 
 ### Current Repository State
