@@ -48,6 +48,11 @@ so that my food archive remains available without an account or cloud sync.
   - [x] Run `npm test` and `npm run validate` from `packages/schema-contract` if schema-contract imports or fixtures are touched.
   - [x] If dependencies are added, record why they are required and confirm the relevant lockfile changes are intentional.
 
+### Pull Request
+
+- Draft PR: https://github.com/MinnieMing412/FoodLife/pull/45
+- PR branch: `dev-1-4-implement-web-local-repository-contract`
+- PR target: `main`
 ## Dev Notes
 
 ### Current Repository State
