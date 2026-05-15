@@ -40,6 +40,10 @@ jobs:
         run: npm ci
         working-directory: apps/web
 
+      - name: Install schema-contract dependencies
+        run: npm ci
+        working-directory: packages/schema-contract
+
       - name: Run web tests
         run: npm run test
         working-directory: apps/web
@@ -51,10 +55,6 @@ jobs:
       - name: Build web app
         run: npm run build
         working-directory: apps/web
-
-      - name: Install schema-contract dependencies
-        run: npm ci
-        working-directory: packages/schema-contract
 
       - name: Run schema-contract tests
         run: npm run test
